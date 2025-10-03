@@ -1,0 +1,26 @@
+﻿<Window x:Class="Example.SimpleUse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Example.SimpleUse"
+        xmlns:components="clr-namespace:TirsvadGUI.Wpf.Components;assembly=TirsvadGUI.Wpf" 
+        xmlns:viewmodel="clr-namespace:TirsvadGUI.Wpf.ViewModel;assembly=TirsvadGUI.Wpf"
+        mc:Ignorable="d"
+        Title="MonthYearPicker Example" Height="200" Width="400">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10">
+            <components:MonthYearPickerCb
+            x:Name="MonthYearPicker"
+            BeginsAtDate="2000-04-01"
+            EndsAtDate="2030-11-30"
+            SelectedDate="2022-10-11"
+            FirstDayOfMonth="True"/>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <TextBlock
+                    Text="{Binding ElementName=MonthYearPicker, Path=DataContext.SelectedDate, StringFormat='Selected Date: {0:yyyy-MM-dd}', Mode=OneWay}"
+                    Margin="0,0,0,20"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

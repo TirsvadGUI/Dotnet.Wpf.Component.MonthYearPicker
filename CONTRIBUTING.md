@@ -1,4 +1,4 @@
-﻿# Contributing to Dotnet.Template.NugetPackage
+﻿# Contributing to MonthYearPicker component
 
 Thank you for your interest in contributing! Your help is greatly appreciated.  
 This document outlines the process for contributing to the project.
@@ -7,7 +7,7 @@ This document outlines the process for contributing to the project.
 
 ### Reporting Bugs
 
-- Open an issue on [GitHub Issues](https://github.com/TirsvadCLI/Dotnet.JwtAuth/issues).
+- Open an issue on [GitHub Issues](https://github.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/issues).
 - Use a clear and descriptive title.
 - Include steps to reproduce, expected and actual behavior, and environment details.
 

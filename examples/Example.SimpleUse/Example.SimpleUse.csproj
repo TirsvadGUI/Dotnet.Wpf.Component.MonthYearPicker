@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+    <!-- Use project reference in Debug -->
+    <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+        <ProjectReference Include="..\..\src\TirsvadGUI.Wpf\TirsvadGUI.Wpf.csproj" />
+    </ItemGroup>
+
+    <!-- Use NuGet package in Release -->
+    <ItemGroup Condition="'$(Configuration)' == 'Release'">
+        <PackageReference Include="TirsvadGUI.Wpf.Component.MonthYearPickerCb" Version="0.1.0" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+    <PropertyGroup>
+        <VersionPrefix>0.1.0</VersionPrefix>
+        <PackageId>TirsvadGUI.Wpf.Component.MonthYearPickerCb</PackageId>
+        <Title>Month and year picker combobox for Wpf</Title>
+        <Authors>Jens Tirsvad Nielsen</Authors>
+        <Company>TirsvadGUI</Company>
+        <PackageIcon>logo.png</PackageIcon>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <RepositoryUrl>https://github.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/TirsvadGUI/</PackageProjectUrl>
+        <PackageTags>Wpf;Components</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <Description>
+        </Description>
+    </PropertyGroup>
+    <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\..\images\logo\128x128\logo.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+</Project>
