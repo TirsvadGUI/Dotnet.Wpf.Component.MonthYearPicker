@@ -104,8 +104,9 @@ Dotnet.Wpf.Component.MonthYearPicker/
 │   └── 📄 doxygen/                      # Doxygen output
 ├── 🖼️ images/                           # Images used in documentation
 ├── 📂 src/                              # Source code
-│   └── 📦 TirsvadGUI.UI/                # Main WPF project
+│   └── 📦 TirsvadGUI.Wpf/               # Main WPF project
 │       └── 📦 Components/               # UI Components
+├── 📂 examples/                         # Examples on how to use the project
 └── 📂 tests/                            # Test projects
 ```
 
@@ -166,11 +167,11 @@ Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 [logo]: https://raw.githubusercontent.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/main/images/logo/32x32/logo.png
 
 <!-- If there is example code -->
-[example-url]: https://raw.githubusercontent.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/main/src/Example/Example.cs
+[example-url]: https://raw.githubusercontent.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/main/examples/Example.SimpleUse
 
 <!-- If this is a Nuget package -->
-[nuget-shield]: https://img.shields.io/nuget/dt/NugetPackageName?style=for-the-badge
-[nuget-url]: https://www.nuget.org/packages/NugetPackageName/
+[nuget-shield]: https://img.shields.io/nuget/dt/TirsvadGUI.Wpf.Component.MonthYearPickerCb?style=for-the-badge
+[nuget-url]: https://www.nuget.org/packages/TirsvadGUI.Wpf.Component.MonthYearPickerCb/
 
 <!-- If this is a downloadable package from github -->
 [downloads-shield]: https://img.shields.io/github/downloads/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/total?style=for-the-badge
