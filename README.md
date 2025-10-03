@@ -1,34 +1,56 @@
-[![NuGet Downloads][nuget-shield]][nuget-url][![Contributors][contributors-shield]][contributors-url][![Forks][forks-shield]][forks-url][![Stargazers][stars-shield]][stars-url][![Issues][issues-shield]][issues-url][![License][license-shield]][license-url][![LinkedIn][linkedin-shield]][linkedin-url]
+﻿[![NuGet Downloads][nuget-shield]][nuget-url][![Contributors][contributors-shield]][contributors-url][![Forks][forks-shield]][forks-url][![Stargazers][stars-shield]][stars-url][![Issues][issues-shield]][issues-url][![License][license-shield]][license-url][![LinkedIn][linkedin-shield]][linkedin-url]
 
-# ![Logo][Logo] Dotnet.Template.NugetPackage.NugetPackage
-A template for nuget packages projects
+# ![Logo][Logo] Month year picker
+A modern, reusable WPF user control for selecting a month and year, featuring a combo box for months and a numeric up/down for years.
 
-<!-- ![Screenshot1][screenshot1-url] -->
+## Table of Contents
+- [Description](#description)
+- [✨ Features](#-features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+    - [1. Install via NuGet](#1-install-via-nuget)
+    - [2. Clone the Repository](#2-clone-the-repository)
+- [🛠️ Usage](#️-usage)
+- [Example of code](#example-of-code)
+- [📦 Project Structure](#-project-structure)
+- [Contributing](#contributing)
+- [Bug / Issue Reporting](#bug--issue-reporting)
+- [License](#license)
+- [Contact](#contact)
+- [Acknowledgments](#acknowledgments)
 
 ## Description
-This is a template for creating .NET nugets projects. It includes a basic structure and some common files to get started quickly.
+A modern, reusable WPF user control for selecting a month and year, featuring a combo box for months and a numeric up/down for years.
 
-## Features
+## ✨ Features
+- Easy integration into any WPF application
+- Customizable appearance and localization support
+- Keyboard and mouse navigation
+- Data binding support for MVVM architecture
 
 ## Getting Started
 
 ### Prerequisites
-- Dotnet 9.0 or later
+- [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) or later
+- Visual Studio 2022 or newer (recommended)
 
 ### Installation
-The TirsvadCLI.Template can be installed in several ways:
 
-#### Fork the projects
-In github forks this project to your account and adjust it for your need.
+#### 1. Install via NuGet
 
-#### Clone the repo (In the project have something simerly to this)
+```powershell
+dotnet add package TirsvadGUI.Wpf.Component.MonthYearPickerCb
+```
+
+#### 2. Clone the Repository
 ![Repo size][repos-size-shield]
 
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/TirsvadCLI/Dotnet.Template.NugetPackage.git 
-    cd Dotnet.Template.NugetPackage
+    git clone https://github.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker.git 
+    cd Dotnet.Wpf.Component.MonthYearPicker
     ```
 
 1. **Restore dependencies:**
@@ -37,127 +59,54 @@ In github forks this project to your account and adjust it for your need.
     dotnet restore
     ```
 
-1. **Update database (if needed):**
-
-    ```bash
-    dotnet ef database update --project src/Template.Infrastructure
-    ```
-
 1. **Build the project:**
 
     ```bash
     dotnet build
     ```
 
-1. **Run the API:**
 
-    ```bash
-    dotnet run --project src/Template
-    ```
-
-#### NuGet Package
-
-```Powershell
-dotnet add package NugetPackageName
-```
-
-
-## Usage
-
-### Notes
-
-Change TirsvadCLI/Dotnet.Template.NugetPackage with the name of your project.
-Change NugetPackageName with the name of your nuget package.
-
-Add Doxygen to the project and add a script to generate the documentation.
-
-In project file for library, add the following lines:
+## 🛠️ Usage
+Add the control to your XAML:
 ```xml
-  <PropertyGroup>
-    <VersionPrefix>0.1.0</VersionPrefix>
-    <PackageId>$(AssemblyName)</PackageId>
-    <Title></Title>
-    <Authors>Jens Tirsvad Nielsen</Authors>
-    <Company>TirsvadCLI</Company>
-    <PackageIcon>logo.png</PackageIcon>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <RepositoryUrl>https://github.com/TirsvadCLI/Dotnet.Template.NugetPackage</RepositoryUrl>
-    <PackageTags>Console</PackageTags>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <Description></Description>
-  </PropertyGroup>
-  <PropertyGroup>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Include="..\..\image\logo\64x64\logo.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+<Window 
+...
+xmlns:controls="clr-namespace:TirsvadGUI.UI.Components;assembly=TirsvadGUI.UI"
+...
+>
+    <Grid>
+        ...
+        <!-- Example with property bindings --> 
+        <controls:MonthYearComboboxPickerUC 
+            SelectedDate="{Binding SelectedDate}" <!-- The currently selected date (DateTime) --> 
+            BeginsAtDate="{Binding MinDate}" <!-- The earliest selectable date (DateTime) -->
+            EndsAtDate="{Binding MaxDate}" <!-- The latest selectable date (DateTime) -->
+            FirstDayOfMonth="{Binding IsFirstDay}" /> <!-- true: select first day, false: last day of month -->
+        ...
+    </Grid>
+</Window>
 ```
 
-#### Increment version number script file
 
-run the command with parameters or change the top of the script file for your need
+**Note:**  
+- Replace `TirsvadGUI.UI.Components` and assembly name as needed.
+- For advanced usage and customization, see the [example code][example-url].
 
-change these lines
-```powershell
-param(
-    # Path to the project file; adjust this default value if needed.  
-    [string]$ProjectFilePath = "$PSScriptRoot/src/Example/Example.csproj",
-    # Path to the NuGet API key for authentication.  
-    [string]$NuGetApiKey = "$env:NugetTirsvadCLI",  # Replace with your actual API key or set it in the environment variable.
-    # NuGet source URL (default is nuget.org).  
-    [string]$NuGetSource = "https://api.nuget.org/v3/index.json",
-    # Path to the certificate file (PFX format) for signing
-    [string]$CertificatePath = "$PSScriptRoot/../../../cert/NugetCertTirsvad/Tirsvad.pfx",
-    # Password for the certificate file
-    [string]$CertificatePassword = "$env:CertTirsvadPassword", # Replace with your actual password or set it in the environment variable.
-    # Is this a NuGet package?
-    [switch]$IsNuGetPackage = $true,
-    # Selfsigned nuget should be off as Nuget.org donnot accept selfsigned packages
-    [switch]$SelfSignedNuGet = $true,
-    # Path to signtool.exe
-    [string]$SignToolPath = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\signtool.exe"
-)
-```
-
-and then run .\IncrementBuildAndPush.ps1
-
+---
 
 ## Example of code
 See example [here][example-url]
 
-## 📂 Folder Structure
+## 📦 Project Structure
 ```plaintext
-Dotnet.Template.NugetPackage/
-├── 📄 docs/                         # Documentation files
-│   └── 📄 doxygen/                  # Doxygen output
-├── 🖼️ images/                       # Images used in documentation
-├── 📂 src/                          # Source code for the library
-│   ├── 📦 Template/                 # Main project
-│   ├── 📦 Template.Application/     # Application layer
-│   │   ├── 📦 Models/               # Data transfer objects (DTOs)
-│   │   └── 📦 Services/             # Application services
-│   ├── 📦 Template.Infrastructure/  # Infrastructure project
-│   │   ├── 📦 Data/                 # Data access layer
-│   │   └── 📦 Services/             # Infrastructure services
-│   └── 📦 Template.Domain/          # Domain project
-│       └── 📦Entities/              # Domain entities
-└── 📂 tests/                        # Test projects
-    ├── 📦 Template.Tests/           # Unit tests for the main project
-    └── 📦 Template.IntegrationTests/ # Integration tests
+Dotnet.Wpf.Component.MonthYearPicker/
+├── 📄 docs/                             # Documentation files
+│   └── 📄 doxygen/                      # Doxygen output
+├── 🖼️ images/                           # Images used in documentation
+├── 📂 src/                              # Source code
+│   └── 📦 TirsvadGUI.UI/                # Main WPF project
+│       └── 📦 Components/               # UI Components
+└── 📂 tests/                            # Test projects
 ```
 
 Under folder src/** and tests/** is an example of how you can structure your project.
@@ -197,37 +146,36 @@ Distributed under the AGPL-3.0 [License][license-url].
 Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 
 ## Acknowledgments
-- [dotnet](https://dotnet.microsoft.com/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/TirsvadCLI/Dotnet.Template.NugetPackage?style=for-the-badge
-[contributors-url]: https://github.com/TirsvadCLI/Dotnet.Template.NugetPackage/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/TirsvadCLI/Dotnet.Template.NugetPackage?style=for-the-badge
-[forks-url]: https://github.com/TirsvadCLI/Dotnet.Template.NugetPackage/network/members
-[stars-shield]: https://img.shields.io/github/stars/TirsvadCLI/Dotnet.Template.NugetPackage?style=for-the-badge
-[stars-url]: https://github.com/TirsvadCLI/Dotnet.Template.NugetPackage/stargazers
-[issues-shield]: https://img.shields.io/github/issues/TirsvadCLI/Dotnet.Template.NugetPackage?style=for-the-badge
-[issues-url]: https://github.com/TirsvadCLI/Dotnet.Template.NugetPackage/issues
-[license-shield]: https://img.shields.io/github/license/TirsvadCLI/Dotnet.Template.NugetPackage?style=for-the-badge
-[license-url]: https://github.com/TirsvadCLI/Dotnet.Template.NugetPackage/blob/main/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker?style=for-the-badge
+[contributors-url]: https://github.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker?style=for-the-badge
+[forks-url]: https://github.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/network/members
+[stars-shield]: https://img.shields.io/github/stars/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker?style=for-the-badge
+[stars-url]: https://github.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/stargazers
+[issues-shield]: https://img.shields.io/github/issues/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker?style=for-the-badge
+[issues-url]: https://github.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/issues
+[license-shield]: https://img.shields.io/github/license/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker?style=for-the-badge
+[license-url]: https://github.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jens-tirsvad-nielsen-13b795b9/
-[githubIssue-url]: https://github.com/TirsvadCLI/Dotnet.Template.NugetPackage/issues/
-[repos-size-shield]: https://img.shields.io/github/repo-size/TirsvadCLI/Dotnet.Template.NugetPackage?style=for-the-badg
+[githubIssue-url]: https://github.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/issues/
+[repos-size-shield]: https://img.shields.io/github/repo-size/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker?style=for-the-badg
 
-[logo]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Template.NugetPackage/main/images/logo/32x32/logo.png
+[logo]: https://raw.githubusercontent.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/main/images/logo/32x32/logo.png
 
 <!-- If there is example code -->
-[example-url]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Template.NugetPackage/main/src/Example/Example.cs
+[example-url]: https://raw.githubusercontent.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/main/src/Example/Example.cs
 
 <!-- If this is a Nuget package -->
 [nuget-shield]: https://img.shields.io/nuget/dt/NugetPackageName?style=for-the-badge
 [nuget-url]: https://www.nuget.org/packages/NugetPackageName/
 
 <!-- If this is a downloadable package from github -->
-[downloads-shield]: https://img.shields.io/github/downloads/TirsvadCLI/Dotnet.Template.NugetPackage/total?style=for-the-badge
-[downloads-url]: https://github.com/TirsvadCLI/Dotnet.Template.NugetPackage/releases
+[downloads-shield]: https://img.shields.io/github/downloads/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/total?style=for-the-badge
+[downloads-url]: https://github.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/releases
 
 <!-- If there is screenshots -->
-<!-- [screenshot1]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Template.NugetPackage/main/images/small/Screenshot1.png
-[screenshot1-url]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Template.NugetPackage/main/images/Screenshot1.png -->
+<!-- [screenshot1]: https://raw.githubusercontent.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/main/images/small/Screenshot1.png
+[screenshot1-url]: https://raw.githubusercontent.com/TirsvadGUI/Dotnet.Wpf.Component.MonthYearPicker/main/images/Screenshot1.png -->

@@ -1,6 +1,6 @@
-param(
+﻿param(
     # Path to the project file; adjust this default value if needed.  
-    [string]$ProjectFilePath = "$PSScriptRoot/src/Example/Example.csproj",
+    [string]$ProjectFilePath = "$PSScriptRoot/src/TirsvadGUI.Wpf/TirsvadGUI.Wpf.csproj",
     # Path to the NuGet API key for authentication.  
     [string]$NuGetApiKey = "$env:NugetTirsvadCLI",  # Replace with your actual API key or set it in the environment variable.
     # NuGet source URL (default is nuget.org).  

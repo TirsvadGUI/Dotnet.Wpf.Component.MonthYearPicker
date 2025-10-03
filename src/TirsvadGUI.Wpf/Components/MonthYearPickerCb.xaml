@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="TirsvadGUI.Wpf.Components.MonthYearPickerCb"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TirsvadGUI.Wpf.Components" 
+             xmlns:viewmodel="clr-namespace:TirsvadGUI.Wpf.ViewModel"
+             d:DataContext="{d:DesignInstance Type=viewmodel:MonthYearPickerCbViewModel}"
+             mc:Ignorable="d">
+    <StackPanel x:Name="StackpanelMonthYearComboboxPickerUC" Orientation="Horizontal">
+        <ComboBox x:Name="ComboBoxMonthYearComboboxPickerUCMonth"
+                  ItemsSource="{Binding Months, Mode=OneWay}"
+                  SelectedIndex="{Binding SelectedMonth, Mode=TwoWay}"
+                  Width="120"
+                  Margin="0,0,10,0"/>
+
+        <ComboBox x:Name="ComboBoxMonthYearComboboxPickerUCYear"
+                  ItemsSource="{Binding Years, Mode=OneTime}"
+                  SelectedItem="{Binding SelectedYear, Mode=TwoWay}"
+                  Width="80" 
+                  Margin="0,0,10,0" />
+    </StackPanel>
+</UserControl>
